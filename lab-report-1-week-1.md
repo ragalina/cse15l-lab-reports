@@ -14,7 +14,7 @@ Steps
 I already had VS Code installed on my laptop, so I simply launched the application. 
 
 ## Remotely Connecting
-Use the [Account Lookup](https://sdacs.ucsd.edu/~icc/index.php) to find your CSE 15L username. It should look like "cs15lfa22xx", with the xx being any two random letters.  After finding your username, reset your password. Keep it simple, since you won't be able to see what you're typing into the terminal! Once your password is reset (this can take 15-60 minutes), login to your account via the terminal. 
+Use the [Account Lookup](https://sdacs.ucsd.edu/~icc/index.php) to find your CSE 15L username. It should look like "cs15lfa22xx", with the xx being any two random letters.  After finding your username, reset your password. Keep it simple, since you won't be able to see what you're typing into the terminal! Once your password is reset (this can take 15-60 minutes), login to your account via the terminal on VSCode.
 
 The command is:
     
@@ -25,7 +25,7 @@ Once prompted, enter your password. If the password doesn't work, try typing it 
 You should then see this text:
 ![Image of Login](lab-report-1/1-acc-login.png)
 
-The 201, 202, & 203 refer to the 3 computers that you can log in to. The number of users may vary when compared to when others logged in, but the load averages are fairly consistent between people.
+The 201, 202, & 203 refer to the 3 computers that you can log in to. The number of users may vary when compared to when others logged in, but the load averages are fairly consistent.
 
 ## Run Some Commands
 After you log in, try running some commands in the remote system!
@@ -47,13 +47,15 @@ Here is what I tried:
 
 ## Moving Files with ```scp```
 
+![SCP Example](lab-report-1/1-scp-practice.png)
+
 To copy files from your personal device to your account on the remotely-accessed computer, we use the ```scp``` command. The full command is:
 
     scp filename.java cs15lfa22nr@ieng6.ucsd.edu:~/
 
-The ```~/``` copies the file to the home directory. To move it to a subfolder, enter the filename after ```/```. 
+The ```~/``` copies the file to the home directory. To move it to a subfolder, enter the filename after ```/```. Make sure you're operating in the directory that the file you're trying to move is stored in. In the example above, I used ```cd``` to switch to the folder where my code is stored. 
 
-After entering this, you'll have to sign in with your password. Once you use ```ssh``` to login again, you should see the file listed. To test this out, I created a practice java file, WhereAmI.java.
+After entering the command, you'll have to sign in with your password. Once you use ```ssh``` to login again, you should see the file listed. To test this out, I created a practice java file, WhereAmI.java.
 
     class WhereAmI {
     public static void main(String[] args) {
