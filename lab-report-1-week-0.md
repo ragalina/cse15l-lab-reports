@@ -1,6 +1,6 @@
 ## Week 0 - Setup
 
-![Lab Report Image](lab-report-1-week-0.png)
+![Lab Report Image](0-lab-report-1-week-0.png)
 
 This is an image of my initial website.
 
