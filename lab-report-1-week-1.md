@@ -9,7 +9,7 @@ Steps
 6. [Making Remote Running *Even* Easier](#making-remote-running-*even*-easier)
 
 ## Download Visual Studio Code 
-![VS Code Image](1-vs-code.png)
+![VS Code Image](lab-report-1/1-vs-code.png)
 
 I already had VS Code installed on my laptop, so I simply launched the application. 
 
@@ -26,7 +26,7 @@ The command is:
 Once prompted, enter your password. If the password doesn't work, try typing it somewhere else and copy-pasting it into the terminal (make sure you don't copy-paste any extra spaces).
 
 You should then see this text:
-![Image of Login](1-acc-login.png)
+![Image of Login](lab-report-1/1-acc-login.png)
 
 The 201, 202, & 203 refer to the 3 computers that you can log in to. The number of users may vary when compared to when others logged in, but the load averages are fairly consistent between people.
 
@@ -34,7 +34,7 @@ The 201, 202, & 203 refer to the 3 computers that you can log in to. The number 
 After you log in, try running some commands in the remote system!
 
 Here is what I tried:
-![Image of Commands](1-basic-commands.png)
+![Image of Commands](lab-report-1/1-basic-commands.png)
 
     cat /home/linux/ieng6/cs15lfa22/public/hello.txt
 
@@ -79,10 +79,10 @@ To test this out, we created a practice java file, WhereAmI.java.
 
 When run on my personal device, this is WhereAmI.java's output:
 
-![WhereAmI.java on Mac](1-whereAmI-on-mac.png)
+![WhereAmI.java on Mac](lab-report-1/1-whereAmI-on-mac.png)
 
 Here is the output from the remote system:
-![WhereAmI.java on Remote System](1-WhereAmI-on-remote.png)
+![WhereAmI.java on Remote System](lab-report-1/1-WhereAmI-on-remote.png)
 
 The ```.getProperty``` function in WhereAmI.java shows the different operating systems and locations of the file on the client vs. the server.
 
@@ -90,7 +90,7 @@ The ```.getProperty``` function in WhereAmI.java shows the different operating s
 To make logging in and copying files faster, we can save our password in ssh keys. The public key file is stored on my account for the remote access system while the private one is stored on my personal device. When both of these files can be found, they can serve as a substitute for the password. 
 
 Here is the code I ran:
-![SSH Key Image](1-ssh-keys.png)
+![SSH Key Image](lab-report-1/1-ssh-keys.png)
 
 At the end, after I inputted my password, the "id_rsa.pub" means that the command was successful.
 
@@ -100,7 +100,7 @@ You can minimize the number of keystrokes needed by simply using the up arrow to
 
 In this screenshot, updating the WhereAmI.java file, compiling, running, and copying it to the remote system would only take 10 keystrokes — 1 to save the file, and 3 up-arrows for each following command.
 
-![Image of minimized code](1-scp-practice.png)
+![Image of minimized code](lab-report-1/1-scp-practice.png)
 
 
 
