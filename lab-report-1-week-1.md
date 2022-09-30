@@ -1,11 +1,11 @@
 This blog post will serve as a tutorial for using our course account to remotely access ```ieng6```.
 
 Steps
-1. [Download Visual Studio Code](#download-visual-studio-code)
+1. [Install Visual Studio Code](#download-visual-studio-code)
 2. [Remotely Connecting](#remotely-connecting)
 3. [Running Basic Commands](#running-basic-commands)
-4. [Copying Files over SSH with ```scp```](#copying-files-over-SSH-with-```scp```)
-5. [SSH Keys](#ssh-keys)
+4. [Moving Files with ```scp```](#moving-files-with-```scp```)
+5. [Setting SSH Keys](#setting-ssh-keys)
 6. [Making Remote Running *Even* Easier](#making-remote-running-*even*-easier)
 
 ## Download Visual Studio Code 
@@ -57,7 +57,7 @@ This copies that remotely-stored file to my personal laptop.
 - ```ctrl + D```
     - this logs you out.
 
-## Copying Files over SSH with ```scp```
+## Moving Files with ```scp```
 
 To copy files from your personal device to your account on the remotely-accessed computer, we use the ```scp``` command.
 
@@ -86,7 +86,7 @@ Here is the output from the remote system:
 
 The ```.getProperty``` function in WhereAmI.java shows the different operating systems and locations of the file on the client vs. the server.
 
-## SSH Keys
+## Setting SSH Keys
 To make logging in and copying files faster, we can save our password in ssh keys. The public key file is stored on my account for the remote access system while the private one is stored on my personal device. When both of these files can be found, they can serve as a substitute for the password. 
 
 Here is the code I ran:
