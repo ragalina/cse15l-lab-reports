@@ -11,7 +11,7 @@ Steps
 ## Download Visual Studio Code 
 ![VS Code Image](lab-report-1/1-vs-code.png)
 
-I already had VS Code installed on my laptop, so I simply launched the application. 
+I already had VS Code installed on my laptop, so I simply launched the application. VS Code is a code editor and developing environment that we will be using alongside Github Desktop to edit code locally, including the code for this website, before pushing to our account. You can also use it for other languages and projects. You can download it [here](https://code.visualstudio.com/Download).
 
 ## Remotely Connecting
 Use the [Account Lookup](https://sdacs.ucsd.edu/~icc/index.php) to find your CSE 15L username. It should look like "cs15lfa22xx", with the xx being any two random letters.  After finding your username, reset your password. Keep it simple, since you won't be able to see what you're typing into the terminal! Once your password is reset (this can take 15-60 minutes), login to your account via the terminal on VSCode.
@@ -87,6 +87,9 @@ The key commands were:
 - ```scp /Users/ragalinapalaka/.ssh/id_rsa.pub cs15lfa22nr@ieng6.ucsd.edu:~/.ssh/authorized_keys```: copies the public key file (```id_rsa.pub```) to the ```.ssh folder``` on the remote account.
 
 The files were saved in their default location, a .ssh file. At the end, after I entered my password, the ```id_rsa.pub``` means that the command was successful.
+
+I'm now able to log in without any password. 
+![Login W/O Password](lab-report-1/1-rsa-login.png)
 
 ## Making Remote Running *Even* Easier
 
