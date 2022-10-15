@@ -53,7 +53,7 @@ Here is my code for ```SearchEngine.java```.
 ```SearchEngine.java``` basically uses data from the query section of the url to add items to an ArrayList of strings or to search within the the ArrayList of strings. Here are examples of it in use:
 
 ![default search](lab-report-2/2-search-default-404.png)
-In ```handleRequest```, the only cases we account for are where the URL path contains "add" or "search". Since the empty, default path contains neither — ```url.getPath()```  = "" - the code enters the else loop and returns "404 Not Found!" as an error message. 
+In ```handleRequest```, the only cases we account for are where the URL path contains "add" or "search". Since the empty, default path contains neither — ```url.getPath()```  = "" — the code enters the else loop and returns "404 Not Found!" as an error message. 
 
 ![add example](lab-report-2/2-search-add-hello.png) 
 This is an example of how we add a string to the ArrayList in the search engine. ```url.getPath()``` = "/add" and ```url.getQuery()``` = "?s=hello". Since the path contains "/add", the code enters the first if statement, where the query is split by the equals sign. Thus, "s=hello" turns into ["s", "hello"]. Since the first element is "s", the code enters the if statement and the second element is added to the ArrayList and a confirmation message is printed. 
