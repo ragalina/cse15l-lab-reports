@@ -53,23 +53,23 @@ Here is my code for ```SearchEngine.java```.
 ```SearchEngine.java``` basically uses data from the query section of the url to add items to an ArrayList of strings or to search within the the ArrayList of strings. Here are examples of it in use:
 
 ![default search](lab-report-2/2-search-default-404.png)
-In ```handleRequest```, the only cases we account for are where the URL path contains "add" or "search". Since the default path, http://localhost:4000, contains neither, the code enters the else loop and returns "404 Not Found!" as an error message. 
+In ```handleRequest```, the only cases we account for are where the URL path contains "add" or "search". Since the empty, default path contains neither — ```url.getPath()```  = "" - the code enters the else loop and returns "404 Not Found!" as an error message. 
 
 ![add example](lab-report-2/2-search-add-hello.png) 
-This is an example of how we add a string to the ArrayList in the search engine. The path in the url is "/add" and the query is "?s=hello". Since the path contains "/add", the code enters the first if statement, where the query is split by the equals sign. Thus, "s=hello" turns into ["s", "hello"]. Since the first element is "s", the code enters the if statement and the second element is added to the ArrayList and a confirmation message is printed. 
+This is an example of how we add a string to the ArrayList in the search engine. ```url.getPath()``` = "/add" and ```url.getQuery()``` = "?s=hello". Since the path contains "/add", the code enters the first if statement, where the query is split by the equals sign. Thus, "s=hello" turns into ["s", "hello"]. Since the first element is "s", the code enters the if statement and the second element is added to the ArrayList and a confirmation message is printed. 
 
 As a summary:
-- ```parameters``` = ["s", "hello"]
+- After the if statement, ```parameters``` = ["s", "hello"]
 - ```strings``` is an empty array before the query is processed, but after, ```strings``` = {"hello"}
 
 This process was repeated for "unicorn", "jello", and "mellow", so that the final ```strings``` ArrayList contains 4 items — {"hello", "unicorn", "jello", "mellow"}.
 
 ![search example](lab-report-2/2-search-ello.png)
 
-In this screenshot, we're searching the ArrayList for strings that contain "ello". The path in the URL is "/search", and the query is "s=ello". Like with the add function, the code enters an else-if loop because the URL contains "search". The query is then split at the "=" to create ```parameters```, an array of strings with the values ["s", "ello"]. In the loop, since ```parameters[0]``` is s, the string we're searching for, ```term``` is set to ```parameters[1]```. Then, the code loops through the ArrayList of strings to see which contain ```term```. If any are found, they are added to the string (```returnSearch```) that is returned and displayed on the website. 
+In this screenshot, we're searching the ArrayList for strings that contain "ello". ```url.getPath()``` = "/search", and ```url.getQuery()``` = "s=ello". Like with the add function, the code enters an else-if loop because the URL contains "search". The query is then split at the "=" to create ```parameters```, an array of strings with the values ["s", "ello"]. In the loop, since ```parameters[0]``` is s, the string we're searching for, ```term``` is set to ```parameters[1]```. Then, the code loops through the ArrayList of strings to see which contain ```term```. If any are found, they are added to the string (```returnSearch```) that is returned and displayed on the website. 
 
 As a summary:
-- ```parameters``` = ["hello", "unicorn", "jello", "mellow"]
+- After the if statement, ```parameters``` = ["hello", "unicorn", "jello", "mellow"]
 - ```returnSearch``` = "This search returns: " at the beginning but is updated to be "This search returns: hello, jello, mellow, "
 
 ## Bugs
