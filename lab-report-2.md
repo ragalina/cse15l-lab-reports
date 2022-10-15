@@ -1,7 +1,7 @@
-1. [Part 1](###searchengine.java)
-2. [Part 2](###bugs)
+1. [Part 1](#searchengine.java)
+2. [Part 2](#bugs)
 
-### SearchEngine.java
+## SearchEngine.java
 Here is my code for ```SearchEngine.java```.
 
     import java.util.ArrayList;
@@ -72,7 +72,7 @@ As a summary:
 - ```parameters``` = ["hello", "unicorn", "jello", "mellow"]
 - ```returnSearch``` = "This search returns: " at the beginning but is updated to be "This search returns: hello, jello, mellow, "
 
-### Bugs
+## Bugs
 In ```ArrayExamples.java```, the ```reversed``` method had a bug. 
 
 The original code: 
