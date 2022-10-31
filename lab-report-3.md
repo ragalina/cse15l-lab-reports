@@ -5,13 +5,15 @@
 
 ## Recursive Searches
 
+The ```grep -r``` command recursively searches through every subdirectory and file in the working directory. It's particularly useful if the working directory has files and other subdirectories, since using ```*/*.txt``` or some other variation may not be able to cover all file and subdirectory possibilities.
+
     ragalinapalaka@Ragalinas-MacBook-Pro technical % grep -r "bike" *
     biomed/1471-2458-2-11.txt:          several days after riding a motorbike through sewage
     government/Alcohol_Problems/Session3-PDF.txt:funded to change six behaviors among youth: not wearing bike
     government/Alcohol_Problems/Session3-PDF.txt:bike helmet use and a slightly larger change in seat belt use, but
     government/Media/man_on_national_team.txt:"Lico likes to be recognized as a biker, but I'm sure he's very
 
-The ```grep -r``` command recursively searches through every subdirectory and file in the working directory. ```grep -r "bike" *``` gives the same results as ```grep "bike" technical/*/*.txt``` would, but with less room for error. 
+```grep -r "bike" *``` gives the same results as ```grep "bike" technical/*/*.txt``` would, but with less room for error, since there's no possibility of missing an ```*/``` for a directory.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -r "brisk" *
     technical/government/Media/Survey.txt:law school, increases that have briskly outpaced inflation in any
@@ -23,7 +25,7 @@ The ```grep -r``` command recursively searches through every subdirectory and fi
     technical/biomed/1476-511X-2-3.txt:          calories 4-7 Kcal/ min, i.e. walking briskly, cycling
     technical/biomed/1476-511X-2-3.txt:          (expended calories >7 Kcal/ min, i.e. walking briskly
 
-Essentially, ```grep -r "brisk" *``` traverses through every file in every sub directry to find and return every file that contains "brisk" in it. 
+Similarly, ```grep -r "brisk" *``` traverses through every file in every sub directry to find and return every file that contains "brisk" in it. 
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -r "athletes" *   
     technical/plos/pmed.0020060.txt:        than—what?—some kind of snack food, some kind of energy chunk for genius triathletes”
@@ -32,15 +34,17 @@ Essentially, ```grep -r "brisk" *``` traverses through every file in every sub d
     technical/plos/journal.pbio.0020348.txt:        However, fiber type alone did not determine the performances of the elite athletes. For
     technical/plos/journal.pbio.0020348.txt:        example, two athletes with similar best times for the 42.2 km marathon distance
 
-Similarly, here the same command is repeated, but it is not searching for "athletes". ```grep -r``` is particularly useful if the working directory has files and other subdirectories, since using ```*/*.txt``` or something similar may not be able to cover all file and subdirectory possibilities.
+The same same command is repeated here, but it is searching for "athletes" instead. 
 
 ## Match Count
+
+```grep -c``` counts the number of times the pattern is matched instead of returning each instance. This is useful for getting a quick summary of the text and how many times a certain word appears, since it's easier to understand than a series of lines with the phrase in it.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -c "diversity" technical/*/*/dive
     rsity_priorities.txt
     44
 
-```grep -c``` counts the number of times the pattern is matched instead of returning each instance. For example, "diversity" appeared 44 times in ```diversity_priorities.txt```. This is useful for getting a quick summary of the text and how many times a certain word appears, and it's much easier to understand than a series of lines with the phrase in it.
+For example, "diversity" appeared 44 times in ```diversity_priorities.txt```. 
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -c "climate" technical/*/Env_Prot_Agen/*.txt
     technical/government/Env_Prot_Agen/1-3_meth_901.txt:0
@@ -58,7 +62,7 @@ Similarly, here the same command is repeated, but it is not searching for "athle
     technical/government/Env_Prot_Agen/tech_adden.txt:0
     technical/government/Env_Prot_Agen/tech_sectiong.txt:0
 
-Similarly, ```grep -c``` can be used the print the number of instances of a specific word for all the files in a directory. Here, we can track how many times "climate" is used in each .txt file within Env_Prot_Agen.
+Similarly, ```grep -c``` can be used the print the number of instances of a specific word for all the files in a directory. Here, we can track how many times "climate" is used in each .txt file within technical/government/Env_Prot_Agen.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -c "chameleon" technical/* 
     grep: technical/911report: Is a directory
@@ -83,7 +87,7 @@ While ```grep -c``` can't be used for directories by itself, it can be combined 
 
 ## Printing More
 
-There are 3 ways to print more of the text that matches the patterns. 
+There are 3 ways to print more of the text that matches the patterns. Which command used depends on whether you want to see text from above the pattern, below, or both above and below. Overall, this can be useful for gaining more context, seeing if there are any other phrases are commonly used alongside the search phrase, and finding the key portions of text. It allows users to tailor the information they receive and control how much or little they receive with each search.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -C2 "forest for debt" */*/*/final.txt
     recently borne fruit, particularly recent agreements with Japan and
@@ -92,7 +96,7 @@ There are 3 ways to print more of the text that matches the patterns.
     forests there that sequester carbon. The complex challenge of
     global climate change requires a global response that will draw on
 
-```grep -C3``` prints 3 more lines, above and below, from where the specific word was found. 
+```grep -C3``` prints 3 more lines, above and below, from where "forrest for debt" was found. 
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -A1 "emphysema" */*/rr73.txt  
 
@@ -122,7 +126,7 @@ There are 3 ways to print more of the text that matches the patterns.
     --
     in diseases such as emphysema.
 
-```grep -A1``` prints 1 lines below where the word was found.  The last line, "in diseases such as emphysema", has "emphysema", so nothing can be printed for after it.
+```grep -A1``` prints 1 lines below where the word was found.  The last line, "in diseases such as emphysema", has "emphysema" as the final word, so nothing can be printed for after it.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -B4 "dysplasia" */*/cc1476.txt
     (rhinorrhea, tachypnea, and wheezing and/or rales); and
@@ -137,5 +141,5 @@ There are 3 ways to print more of the text that matches the patterns.
     positive for RSV and none were premature or had
     bronchopulmonary dysplasia.
 
-```grep -B4``` prints the 4 lines before when the phrase was used. Overall, this can be useful for gaining more context, seeing what similar phrases are used alongside the search phrase, and finding the key portions of text interest you. It allows users to tailor the information they receive and control how much or little they receive with each search.
+```grep -B4``` prints the 4 lines before when the phrase was used. 
 
