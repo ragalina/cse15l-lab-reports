@@ -40,7 +40,7 @@ Similarly, here the same command is repeated, but it is not searching for "athle
     rsity_priorities.txt
     44
 
-```grep -c``` counts the number of times the pattern is matched instead of returning each instance. For example, "diversity" appeared 44 times in ```diversity_priorities.txt```.
+```grep -c``` counts the number of times the pattern is matched instead of returning each instance. For example, "diversity" appeared 44 times in ```diversity_priorities.txt```. This is useful for getting a quick summary of the text and how many times a certain word appears, and it's much easier to understand than a series of lines with the phrase in it.
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -c "climate" technical/*/Env_Prot_Agen/*.txt
     technical/government/Env_Prot_Agen/1-3_meth_901.txt:0
