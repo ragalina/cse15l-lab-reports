@@ -1,7 +1,7 @@
 ## Grep
-1. [Recursive searches](#recursivesearches)
-2. [Match count](#matchcount)
-3. [Printing additional lines](#printingmore)
+1. [Recursive Searches](#recursive-searches)
+2. [Match Count](#match-count)
+3. [Printing More](#printing-more)
 
 ## Recursive Searches
 
