@@ -34,7 +34,7 @@ Essentially, ```grep -r "brisk" *``` traverses through every file in every sub d
 
 Similarly, here the same command is repeated, but it is not searching for "athletes". ```grep -r``` is particularly useful if the working directory has files and other subdirectories, since using ```*/*.txt``` or something similar may not be able to cover all file and subdirectory possibilities.
 
-#Match Count
+## Match Count
 
     (base) ragalinapalaka@Ragalinas-MacBook-Pro skill-demo1 % grep -c "diversity" technical/*/*/dive
     rsity_priorities.txt
@@ -81,7 +81,7 @@ While ```grep -c``` can't be used for directories by itself, it can be combined 
     technical/911report/chapter-10.txt:5
     technical/911report/chapter-11.txt:2
 
-#Printing More
+## Printing More
 
 There are 3 ways to print more of the text that matches the patterns. 
 
