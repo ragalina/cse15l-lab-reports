@@ -1,10 +1,12 @@
 ## Code Overview
 Here is my code for ```grade.sh```:
 
+# Create your grading script here
+
     set -e
 
     CPATH="student-submission/ListExamples.java"
-    JUNITPATH=".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar"
+    JUNITPATH=".:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar"
 
     rm -rf student-submission
     git clone $1 student-submission
@@ -13,27 +15,36 @@ Here is my code for ```grade.sh```:
     then
         echo "ListExamples.java wasn't found :("
         exit
+    else 
+        echo "student-submission was cloned successfully :)"
     fi
 
     set +e 
 
-    # inspired by https://github.com/phuanh004/list-examples-grader
-    mkdir student-submission/lib
-    cp lib/* student-submission/lib
-    cp *.java student-submission
-
+    cp TestListExamples.java student-submission
     cd student-submission
 
-    javac -cp $JUNITPATH ListExamples.java TestListExamples.java 2> junitout.txt
-    java -cp $JUNITPATH org.junit.runner.JUnitCore ListExamples TestListExamples 2 > junitout.txt
+    javac -cp $JUNIT_PATH *.java 2> juniterr.txt
 
-    if [[ ! $? -ne 0 ]]
+    if [[ $? -eq 0 ]]
     then
+        echo "Compilation was a success :)"
+    else
         echo "ListExamples.java failed to compile :/"
         exit
+    fi
+
+    java -cp $JUNIT_PATH org.junit.runner.JUnitCore TestListExamples 2> junitout.txt
+
+    if [[ $? -ne 0 ]]
+    then
+        echo "Some tests failed :,("
+        FAILURE=$(grep "Failures: " junitout.txt)
+        SCORE=$((5-$FAILURE))
+        echo $SCORE "/5"
     else
-        echo "Everything looks good :)"
-        exit
+        echo "All tests passed!"
+        echo "Score: 5/5 :)"
     fi
 
 Here is my output for https://github.com/ucsd-cse15l-f22/list-methods-compile-error
@@ -48,6 +59,8 @@ Here is my output for https://github.com/ucsd-cse15l-f22/list-methods-corrected
 ## Code Trace
 
 Here is the code trace for Example 2, where the file wasn't found. 
+- ```rm -rf student-submission```
+    - This deletes the entire student-submission file from list-example-grader. Once the command is executed successfully, the entire folder is removed.
 - ```git clone```
     - exit code: 0 (executed successfully)
     - standard output: 
@@ -63,5 +76,6 @@ Here is the code trace for Example 2, where the file wasn't found.
     - exit code: 1
     - standard output: none
     - standard error: none
+    - This checks to see whether the file exists. Since, in example 2, the file can't be found, this command will fail. 
 
 Since this command failed, we exit the code and none of the following lines are executed. 
